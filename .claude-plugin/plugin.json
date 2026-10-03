@@ -1,0 +1,235 @@
+{
+  "name": "usage-band",
+  "version": "0.3.0",
+  "description": "Usage band above the prompt: limits with projection, context, tokens, speed, cost, turns, tools, churn, agents, model, effort, folder, git and memory, each one switchable",
+  "author": {
+    "name": "ersinkoc"
+  },
+  "types": "./types/index.d.ts",
+  "homepage": "https://github.com/ersinkoc/claude-usage-band",
+  "repository": "https://github.com/ersinkoc/claude-usage-band",
+  "license": "MIT",
+  "keywords": [
+    "usage",
+    "rate-limits",
+    "tokens",
+    "cost",
+    "status"
+  ],
+  "userConfig": {
+    "show5h": {
+      "type": "boolean",
+      "title": "Usage band: 5-hour limit",
+      "description": "Usage of the 5-hour rate-limit window and time to reset",
+      "default": true
+    },
+    "show7d": {
+      "type": "boolean",
+      "title": "Usage band: 7-day limit",
+      "description": "Usage of the 7-day rate-limit window and time to reset",
+      "default": true
+    },
+    "showSpendLimit": {
+      "type": "boolean",
+      "title": "Usage band: spend limit",
+      "description": "A gateway's spend limit, when the account reports one",
+      "default": true
+    },
+    "showContext": {
+      "type": "boolean",
+      "title": "Usage band: context window",
+      "description": "How full the context window is",
+      "default": true
+    },
+    "showInput": {
+      "type": "boolean",
+      "title": "Usage band: input tokens",
+      "description": "Uncached input plus cache writes",
+      "default": true
+    },
+    "showOutput": {
+      "type": "boolean",
+      "title": "Usage band: output tokens",
+      "description": "Tokens the model generated",
+      "default": true
+    },
+    "showThinking": {
+      "type": "boolean",
+      "title": "Usage band: thinking tokens",
+      "description": "The part of output spent on extended thinking",
+      "default": true
+    },
+    "showCacheRead": {
+      "type": "boolean",
+      "title": "Usage band: cache read tokens",
+      "description": "Input tokens served from the prompt cache",
+      "default": true
+    },
+    "showCacheHit": {
+      "type": "boolean",
+      "title": "Usage band: cache hit rate",
+      "description": "Share of all input read from the prompt cache",
+      "default": true
+    },
+    "showWeb": {
+      "type": "boolean",
+      "title": "Usage band: web searches and fetches",
+      "description": "Server-side web search and fetch requests",
+      "default": true
+    },
+    "showRequests": {
+      "type": "boolean",
+      "title": "Usage band: api requests",
+      "description": "Model requests, subagents included",
+      "default": true
+    },
+    "showSpeed": {
+      "type": "boolean",
+      "title": "Usage band: output speed",
+      "description": "Tokens per second of the last response (hover for the average)",
+      "default": true
+    },
+    "showCost": {
+      "type": "boolean",
+      "title": "Usage band: session cost",
+      "description": "Session cost at API list prices",
+      "default": true
+    },
+    "showCostRate": {
+      "type": "boolean",
+      "title": "Usage band: cost per hour",
+      "description": "Average spend per hour since the session started",
+      "default": true
+    },
+    "showLastTurn": {
+      "type": "boolean",
+      "title": "Usage band: last turn",
+      "description": "Duration, cost and output speed of the last turn",
+      "default": true
+    },
+    "showTools": {
+      "type": "boolean",
+      "title": "Usage band: tool calls",
+      "description": "Tool calls, failures and the most used tools",
+      "default": true
+    },
+    "showChurn": {
+      "type": "boolean",
+      "title": "Usage band: lines changed",
+      "description": "Lines added and removed by Edit, MultiEdit and Write",
+      "default": true
+    },
+    "showAgents": {
+      "type": "boolean",
+      "title": "Usage band: running subagents",
+      "description": "Subagents running right now",
+      "default": true
+    },
+    "showCompactions": {
+      "type": "boolean",
+      "title": "Usage band: compactions",
+      "description": "How often the context was compacted and what it freed",
+      "default": true
+    },
+    "showPrompts": {
+      "type": "boolean",
+      "title": "Usage band: prompts",
+      "description": "Prompts sent this session",
+      "default": true
+    },
+    "showSessionAge": {
+      "type": "boolean",
+      "title": "Usage band: session age",
+      "description": "Time since the session started",
+      "default": true
+    },
+    "showModel": {
+      "type": "boolean",
+      "title": "Usage band: model",
+      "description": "The model that answered last, and the Claude Code version",
+      "default": true
+    },
+    "showEffort": {
+      "type": "boolean",
+      "title": "Usage band: thinking effort",
+      "description": "The thinking effort of the last request (low to max)",
+      "default": true
+    },
+    "showFolder": {
+      "type": "boolean",
+      "title": "Usage band: folder",
+      "description": "The working directory's name (hover for the full path)",
+      "default": true
+    },
+    "showGit": {
+      "type": "boolean",
+      "title": "Usage band: git branch",
+      "description": "Branch, uncommitted files, ahead and behind",
+      "default": true
+    },
+    "showMemory": {
+      "type": "boolean",
+      "title": "Usage band: machine memory",
+      "description": "This machine's memory in use",
+      "default": true
+    },
+    "limitProjection": {
+      "type": "boolean",
+      "title": "Usage band: limit projection",
+      "description": "Project 5h/7d usage at reset from the pace so far and warn when it would pass 100%",
+      "default": true
+    },
+    "contextBreakdown": {
+      "type": "boolean",
+      "title": "Usage band: context breakdown",
+      "description": "List what fills the context in the context tooltip (estimated locally)",
+      "default": true
+    },
+    "alerts": {
+      "type": "boolean",
+      "title": "Usage band: limit alerts",
+      "description": "A toast when a limit crosses the yellow or red threshold",
+      "default": true
+    },
+    "showInTerminal": {
+      "type": "boolean",
+      "title": "Usage band: show in the terminal",
+      "description": "Off to show the band only in the desktop app",
+      "default": true
+    },
+    "layout": {
+      "type": "string",
+      "title": "Usage band: layout",
+      "description": "full: icons and bars; compact: text only",
+      "default": "full",
+      "options": [
+        "full",
+        "compact"
+      ]
+    },
+    "warnAt": {
+      "type": "number",
+      "title": "Usage band: yellow from %",
+      "description": "Bars turn yellow (and a toast fires) at this percent",
+      "default": 70,
+      "min": 1,
+      "max": 100
+    },
+    "hotAt": {
+      "type": "number",
+      "title": "Usage band: red from %",
+      "description": "Bars turn red (and a toast fires) at this percent",
+      "default": 90,
+      "min": 1,
+      "max": 100
+    },
+    "refreshSeconds": {
+      "type": "number",
+      "title": "Usage band: refresh every (s)",
+      "description": "Seconds between refreshes of limits, timers and totals (10 to 600)",
+      "default": 30,
+      "min": 10,
+      "max": 600
+    }
+  }
+}

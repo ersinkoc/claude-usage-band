@@ -1,0 +1,26 @@
+{
+  "name": "claude-usage-band",
+  "version": "0.3.0",
+  "private": true,
+  "description": "A Claude Code mod: a usage band above the prompt with limits, context, tokens, cost and more",
+  "type": "module",
+  "license": "MIT",
+  "author": "ersinkoc",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ersinkoc/claude-usage-band.git"
+  },
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "setup": "node install.mjs",
+    "setup:link": "node install.mjs --link",
+    "uninstall:mod": "node install.mjs --uninstall",
+    "validate": "claude plugin validate .",
+    "test": "claude plugin test .",
+    "typecheck": "npx -y -p typescript@5 tsc -p tsconfig.json",
+    "manifest": "node tools/manifest.mts",
+    "preview": "node tools/preview.mts"
+  }
+}

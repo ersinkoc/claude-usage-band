@@ -1,0 +1,5 @@
+# Written by Claude Code: /plugin-types, and the engine when it loads the mod
+.claude/
+.claude-plugin/types/
+node_modules/
+*.bak
