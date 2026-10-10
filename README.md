@@ -31,6 +31,9 @@ Hover any pill for its breakdown: input split into uncached and cache writes (wi
 
 ```bash
 curl -fsSL https://wrongstack.com/install.sh | sh   # macOS / Linux — self-contained binary
+```
+
+```powershell
 irm https://wrongstack.com/install.ps1 | iex        # Windows (PowerShell) — no Node.js needed
 ```
 
@@ -85,8 +88,16 @@ If `CLAUDE_CODE_PLUGIN_DIRS` already lists other folders, they are kept. Entries
 | --- | --- |
 | `node install.mjs` | Copy and register (run it again after `git pull` to update) |
 | `node install.mjs --link` | Register this folder itself instead of a copy, so your edits apply live |
-| `node install.mjs --uninstall` | Unregister and remove the copy |
+| `node install.mjs --uninstall` | Unregister and remove the copy (same as `node uninstall.mjs`) |
 | `node install.mjs --dry-run` | Show what would change without changing anything |
+
+## Uninstall
+
+```bash
+node uninstall.mjs            # add --dry-run to preview
+```
+
+This removes the mod's folder from `CLAUDE_CODE_PLUGIN_DIRS` (other folders you list there stay), deletes `~/.claude/mods/usage-band`, and backs up `settings.json` first. `CLAUDE_CODE_ENABLE_FUNCTION_HOOKS` is left on in case other mods use it; delete that line by hand if you want it gone. Your cloned folder is not touched. Start a new session afterwards.
 
 To try it without installing, run a single session with `claude --plugin-dir /path/to/claude-usage-band`.
 

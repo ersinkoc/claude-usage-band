@@ -16,7 +16,7 @@
   "scripts": {
     "setup": "node install.mjs",
     "setup:link": "node install.mjs --link",
-    "uninstall:mod": "node install.mjs --uninstall",
+    "uninstall:mod": "node uninstall.mjs",
     "validate": "claude plugin validate .",
     "test": "claude plugin test .",
     "typecheck": "npx -y -p typescript@5 tsc -p tsconfig.json",
